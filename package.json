@@ -1,0 +1,33 @@
+{
+  "name": "server44",
+  "version": "1.0.0",
+  "description": "十二种nodejs服务器脚手架之三者api服务器",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "mysql": "^2.13.0",
+    "tracer": "^0.7.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktont/server123.git"
+  },
+  "keywords": [
+    "nodejs",
+    "server",
+    "api-server",
+    "mysql"
+  ],
+  "bugs": {
+    "url": "https://github.com/ktont/server123/issues"
+  },
+  "homepage": "https://github.com/ktont/server123#readme"
+}
