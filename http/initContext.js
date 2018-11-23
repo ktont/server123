@@ -26,6 +26,7 @@ function initContext(req, res) {
   const p = url.parse(req.url, true);
   req.pathname_ = path.normalize(p.pathname.replace(/\/$/, ''));
   req.query_ = p.query;
+  req.body_ = {};
   res.send200 = _send200.bind(res);
   res.send500 = _send500.bind(res);
 
