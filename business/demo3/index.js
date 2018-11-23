@@ -1,9 +1,6 @@
 //const mysqlCli = require("../../lib/mysql/single.js");
-const pool = require("../../lib/mysql/pool.js");
-
-function sleep(n) {
-	return new Promise((resolve) => setTimeout(resolve, n*1000));
-}
+const pool = require('../../lib/mysql/pool.js');
+const sleep = require('../../lib/sleep.js');
 
 function query2() {
 	return new Promise((resolve, reject) => {
@@ -34,5 +31,5 @@ function query3() {
 module.exports = async (arg) => {
   console.log(new Date(), '11111111111');
   await sleep(2);
-  return await query3();
+  return await query2();
 }

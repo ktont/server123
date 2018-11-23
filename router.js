@@ -8,7 +8,10 @@ const hostname = require('os').hostname();
 const MOCK = hostname == 'user1.desttop' || 
              hostname == 'user2.localhost' ||
              false ? '_mock' : '';
+
 //const xx = MOCK ? require('./xxMock.js') : require('./xx.js');
+const demo1 = require('./business/demo1');
+//const demo2 = require('./business/demo2');
 const demo3 = require('./business/demo3/index.js');
 
 module.exports = function(req, res) {
@@ -22,6 +25,10 @@ module.exports = function(req, res) {
       .then(() => new Promise((A, B) => {
         A('ok');
       }));
+    case '/demo1':
+      return demo1();
+    //case '/demo2':
+    //  return demo2();
     case '/demo3':
       return demo3();
     default:

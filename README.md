@@ -2,6 +2,16 @@
 
 十二种nodejs服务器脚手架，这是第三种，http api 服务器
 
+## 如何使用?
+
+```
+npm install
+node ./app.js &
+
+curl localhost:3000/demo1
+
+```
+
 ## 携带的功能有
 
 * mysql 驱动，一定要用pool模式，pool模式是全自动的
