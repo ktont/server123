@@ -1,6 +1,5 @@
 module.exports = {
     port: 3000,
-    log_disable: false,
     log_root: '/tmp/logs',
     redis: {
         port: '6379',

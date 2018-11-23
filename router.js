@@ -12,7 +12,7 @@ const MOCK = hostname == 'user1.desttop' ||
 //const xx = MOCK ? require('./xxMock.js') : require('./xx.js');
 const demo1 = require('./business/demo1');
 //const demo2 = require('./business/demo2');
-const demo3 = require('./business/demo3/index.js');
+const demo3 = require('./business/demo3');
 
 module.exports = function(req, res) {
   switch(req.pathname_) {
