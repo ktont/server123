@@ -7,7 +7,7 @@ function _send200(data) {
   if(typeof data == 'object') {
     data = JSON.stringify(data);
   }
-  this.writeHead(200, { 'Content-Type': 'text/plain' });
+  this.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
   this.end(data);
 }
 
@@ -18,7 +18,7 @@ function _send500(data) {
            JSON.stringify(data);
   }
   //console.log('1111111111111', data);
-  this.writeHead(500, { 'Content-Type': 'text/plain' });
+  this.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
   this.end(data+'\n');
 }
 
