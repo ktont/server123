@@ -1,11 +1,6 @@
 module.exports = {
     port: 3000,
     log_root: '/tmp/logs',
-    redis: {
-        port: '6379',
-        host: 'localhost',
-        options: {auth_pass:'1234'}
-    },
     mysql: {
         host     : 'localhost',
         user     : 'test',

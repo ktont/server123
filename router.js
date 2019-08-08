@@ -32,7 +32,7 @@ module.exports = function(req, res) {
     case '/demo3':
       return demo3();
     default:
-      throw new Error('not found');
+      throw new Error('NotFound '+req.pathname_);
   }
 }
 
