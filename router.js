@@ -18,7 +18,7 @@ module.exports = function(req, res) {
   switch(req.pathname_) {
     case '/error':
       res.send500(new Error('fake'));
-      throw 'end';
+      return;
     case '/ok':
       console.log('22222222222', req.body_);
       return sleep(1000)

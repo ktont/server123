@@ -4,6 +4,8 @@ const url = require("url");
 const querystring = require("querystring");
 
 function _send200(data) {
+  if(this.finished) return;
+
   if(typeof data == 'object') {
     data = JSON.stringify(data);
   }
@@ -12,6 +14,8 @@ function _send200(data) {
 }
 
 function _send500(data) {
+  if(this.finished) return;
+  
   if(typeof data == 'object') {
     data = data instanceof Error ? 
            data.stack : 
@@ -27,6 +31,7 @@ function initContext(req, res) {
   req.pathname_ = path.normalize(p.pathname.replace(/\/$/, ''));
   req.query_ = p.query;
   req.body_ = {};
+
   res.send200 = _send200.bind(res);
   res.send500 = _send500.bind(res);
 
