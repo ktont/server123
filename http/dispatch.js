@@ -2,9 +2,8 @@ const logger = require('../lib/logger.js');
 const config = require('../config.js');
 
 const initContext = require('./initContext.js');
-const router = require('../router.js');
 
-async function handleRequest(req, res) {
+async function handleRequest(req, res, router) {
   await initContext(req, res);
   return await router(req, res);
 }
@@ -14,6 +13,7 @@ async function handleRequest(req, res) {
 
 module.exports = (router) => {
   return (req, res, router) => {
+    logger.access(req.url);
     handleRequest(req, res, router)
     .then(ret => {
       res.send200(ret);
@@ -22,8 +22,10 @@ module.exports = (router) => {
       if(err === 'end' || 
          err === 'break') return;
       res.send500(err);
+      if(err instanceof Error) {
+        logger.error(err.stack);
+      }
     });
   }
 }
-
 
