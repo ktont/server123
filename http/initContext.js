@@ -3,27 +3,32 @@ const path = require("path");
 const url = require("url");
 const querystring = require("querystring");
 
+
 function _send200(data) {
   if(this.finished) return;
+
+  this.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+  if(data == null) return this.end();
 
   if(typeof data == 'object') {
     data = JSON.stringify(data);
   }
-  this.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
   this.end(data);
 }
 
 function _send500(data) {
   if(this.finished) return;
   
+  this.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+  if(data == null) return this.end();
+
   if(typeof data == 'object') {
     data = data instanceof Error ? 
            data.stack : 
            JSON.stringify(data);
+    data += '\n';
   }
-  //console.log('1111111111111', data);
-  this.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
-  this.end(data+'\n');
+  this.end(data);
 }
 
 function initContext(req, res) {
