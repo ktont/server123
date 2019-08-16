@@ -31,8 +31,6 @@ module.exports = function(req, res) {
     //  return demo2();
     case '/demo3':
       return demo3();
-    default:
-      throw new Error('NotFound '+req.pathname_);
   }
 }
 
