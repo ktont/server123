@@ -6,7 +6,14 @@ const staticServer = require('./staticServer.js');
 
 async function handleRequest(req, res, router) {
   await initContext(req, res);
-  await router(req, res);
+  if(Array.isArray(router)) {
+    for(let i=0;i<router.length;i++) {
+      await router[i](req, res);
+    }
+  } else {
+    await router(req, res);
+  }
+  
   if(!res.finished) {
     staticServer(req, res);
   }
